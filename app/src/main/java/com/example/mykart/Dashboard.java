@@ -2,7 +2,10 @@ package com.example.mykart;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListAdapter;
@@ -28,8 +31,6 @@ public class Dashboard extends AppCompatActivity {
     String productName,description,brand,category,thumbnails;
     int id,price,stock;
     double discountPercentage,rating;
-
-    ArrayList listOfProducts;
     ArrayList<Products> storeProducts;
     ListView productList;
     RequestQueue requestQueue;
@@ -71,24 +72,8 @@ public class Dashboard extends AppCompatActivity {
 
 
                             }
-                            System.out.println("MyProducts :"+storeProducts.get(0).getProductName());
-                            listOfProducts=new ArrayList<>();
-                            for(int i=0;i<storeProducts.size();i++){
-                                ArrayList ab=new ArrayList<>();
-                                ab.add(storeProducts.get(i).getId());
-                                ab.add(storeProducts.get(i).getProductName());
-                                ab.add(storeProducts.get(i).getDescription());
-                                ab.add(storeProducts.get(i).getPrice());
-                                ab.add(storeProducts.get(i).getDiscountPercentage());
-                                ab.add(storeProducts.get(i).getRating());
-                                ab.add(storeProducts.get(i).getStock());
-                                ab.add(storeProducts.get(i).getBrand());
-                                ab.add(storeProducts.get(i).getCategory());
-                                ab.add(storeProducts.get(i).getThumbnails());
-                                listOfProducts.add(ab);
-                            }
-                            System.out.println("MyProducts are:"+ listOfProducts);
-                            ListAdapter listAdapter=new ArrayAdapter<>(Dashboard.this,android.R.layout.simple_list_item_1,listOfProducts);
+                            System.out.println("MyProducts :"+storeProducts.get(0).getImages());
+                            MyCustomAdapter listAdapter=new MyCustomAdapter(Dashboard.this,R.layout.my_custom_layout,storeProducts);
                             productList.setAdapter(listAdapter);
 
                             System.out.println(id+productName+description+price+discountPercentage+rating+stock+brand+category);
@@ -103,11 +88,28 @@ public class Dashboard extends AppCompatActivity {
             }
         });
         requestQueue.add(request);
+        productList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                Intent i=new Intent(Dashboard.this,ProductViewer.class);
+                i.putExtra("productName",storeProducts.get(position).getProductName());
+                i.putExtra("description",storeProducts.get(position).getDescription());
+                String prc= String.valueOf(storeProducts.get(position).getPrice());
+                i.putExtra("price",prc);
+                String discount=String.valueOf(storeProducts.get(position).getDiscountPercentage());
+                i.putExtra("discountPercentage",discount);
+                String ratings=String.valueOf(storeProducts.get(position).getRating());
+                i.putExtra("rating",ratings);
+                String stocks=String.valueOf(storeProducts.get(position).getStock());
+                i.putExtra("stock",stocks);
+                i.putExtra("brand",storeProducts.get(position).getBrand());
+                i.putExtra("category",storeProducts.get(position).getCategory());
+                ArrayList img=storeProducts.get(position).getImages();
+                i.putExtra("images",img);
+                System.out.println("MyProducts :"+storeProducts.get(position).getImages());
+                startActivity(i);
 
-
-
-
+            }
+        });
     }
-
-
 }

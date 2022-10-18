@@ -29,11 +29,13 @@
 
     <ListView
         android:id="@+id/productList"
-        android:layout_width="365dp"
-        android:layout_height="575dp"
+        android:layout_width="340dp"
+        android:layout_height="555dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
+        android:layout_marginStart="35dp"
+        android:layout_marginEnd="35dp"
         app:layout_constraintVertical_bias="0.577" />
 </androidx.constraintlayout.widget.ConstraintLayout>
