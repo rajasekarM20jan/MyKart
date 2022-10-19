@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
         etForPassword.setError("Invalid Credentials");
     }
     public void dashboard(){
-        Intent i=new Intent(this,Dashboard.class);
+        Intent i=new Intent(this,filters.class);
         startActivity(i);
     }
     public void gettoDb(){

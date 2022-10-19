@@ -16,6 +16,13 @@
         android:theme="@style/Theme.MyKart"
         tools:targetApi="31">
         <activity
+            android:name=".filters"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".ProductViewer"
             android:exported="false">
             <meta-data
@@ -25,8 +32,6 @@
         <activity
             android:name=".Dashboard"
             android:exported="false">
-
-
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -46,6 +51,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />

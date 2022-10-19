@@ -31,7 +31,7 @@
 
 
 
-        <androidx.appcompat.widget.SearchView
+        <android.widget.SearchView
             android:id="@+id/mySearch"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -41,19 +41,23 @@
         <ListView
             android:id="@+id/productList"
             android:layout_width="350dp"
-            android:layout_height="595dp"
+            android:layout_height="605dp"
             android:layout_marginStart="2dp"
             android:layout_marginEnd="50dp"
             android:layout_marginBottom="1dp"
             />
-        <android.widget.Button
-            android:layout_width="match_parent"
-            android:layout_height="65dp"
-            android:text="Filter"
-            android:background="#1C72DC"
-            android:textColor="@color/white"
 
+
+
+        <android.widget.Button
+            android:id="@+id/filters"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="#1C72DC"
+            android:text="Filters"
+            android:textColor="@color/white"
             />
+
     </LinearLayout>
 
 

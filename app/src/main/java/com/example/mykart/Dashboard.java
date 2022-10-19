@@ -2,6 +2,8 @@ package com.example.mykart;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
@@ -40,6 +42,8 @@ public class Dashboard extends AppCompatActivity {
     ListView productList;
     RequestQueue requestQueue;
     SearchView search;
+    Button filter;
+    String values="all";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,6 +52,19 @@ public class Dashboard extends AppCompatActivity {
         storeProducts=new ArrayList<>();
         search=findViewById(R.id.mySearch);
         productList=findViewById(R.id.productList);
+        filter=findViewById(R.id.filters);
+        Intent i=getIntent();
+        String a;
+        try{
+            a=i.getStringExtra("values");
+        }
+        catch (Exception e){
+            a="all";
+        }
+        values=a;
+        System.out.println("MyValues : "+values);
+
+
         String url="https://dummyjson.com/products";
         JsonObjectRequest request= new JsonObjectRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONObject>() {
@@ -94,6 +111,44 @@ public class Dashboard extends AppCompatActivity {
         });
         requestQueue.add(request);
 
+        ArrayList<Products> myFilter=new ArrayList<Products>();
+        System.out.println("MyValues 2: "+values);
+        for (Products item: storeProducts) {
+            System.out.println("MyValues 3: "+values);
+            if (values.equals("all")){
+                myFilter.add(item);
+            }else{
+                if(item.getCategory().toLowerCase().contains(values.toLowerCase())){
+                    System.out.println("MyValues 1: "+values);
+                    myFilter.add(item);
+                }
+            }
+        }
+        MyCustomAdapter listAdapter=new MyCustomAdapter(Dashboard.this,R.layout.my_custom_layout,myFilter);
+        productList.setAdapter(listAdapter);
+        productList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                Intent i=new Intent(Dashboard.this,ProductViewer.class);
+                i.putExtra("productName",myFilter.get(position).getProductName());
+                i.putExtra("description",myFilter.get(position).getDescription());
+                String prc= String.valueOf(myFilter.get(position).getPrice());
+                i.putExtra("price",prc);
+                String discount=String.valueOf(myFilter.get(position).getDiscountPercentage());
+                i.putExtra("discountPercentage",discount);
+                String ratings=String.valueOf(myFilter.get(position).getRating());
+                i.putExtra("rating",ratings);
+                String stocks=String.valueOf(myFilter.get(position).getStock());
+                i.putExtra("stock",stocks);
+                i.putExtra("brand",myFilter.get(position).getBrand());
+                i.putExtra("category",myFilter.get(position).getCategory());
+                ArrayList img=myFilter.get(position).getImages();
+                i.putExtra("images",img);
+                System.out.println("MyProductsSearch :"+myFilter.get(position).getImages());
+                startActivity(i);
+            }
+        });
+
         search.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String s) {
@@ -102,9 +157,40 @@ public class Dashboard extends AppCompatActivity {
 
             @Override
             public boolean onQueryTextChange(String s) {
+                ArrayList<Products> mySearch=new ArrayList<Products>();
+                for (Products item: storeProducts) {
+                    if(item.getProductName().toLowerCase().contains(s.toLowerCase())){
+                        mySearch.add(item);
+                    }
+                }
+                MyCustomAdapter listAdapter=new MyCustomAdapter(Dashboard.this,R.layout.my_custom_layout,mySearch);
+                productList.setAdapter(listAdapter);
+                productList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                        Intent i=new Intent(Dashboard.this,ProductViewer.class);
+                        i.putExtra("productName",mySearch.get(position).getProductName());
+                        i.putExtra("description",mySearch.get(position).getDescription());
+                        String prc= String.valueOf(mySearch.get(position).getPrice());
+                        i.putExtra("price",prc);
+                        String discount=String.valueOf(mySearch.get(position).getDiscountPercentage());
+                        i.putExtra("discountPercentage",discount);
+                        String ratings=String.valueOf(mySearch.get(position).getRating());
+                        i.putExtra("rating",ratings);
+                        String stocks=String.valueOf(mySearch.get(position).getStock());
+                        i.putExtra("stock",stocks);
+                        i.putExtra("brand",mySearch.get(position).getBrand());
+                        i.putExtra("category",mySearch.get(position).getCategory());
+                        ArrayList img=mySearch.get(position).getImages();
+                        i.putExtra("images",img);
+                        System.out.println("MyProductsSearch :"+mySearch.get(position).getImages());
+                        startActivity(i);
+                    }
+                });
                 return false;
             }
         });
+
 
         productList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -129,5 +215,15 @@ public class Dashboard extends AppCompatActivity {
 
             }
         });
+        filter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getfilterPage();
+            }
+        });
+    }
+    void getfilterPage(){
+        Intent i=new Intent(this,filters.class);
+        startActivity(i);
     }
 }
