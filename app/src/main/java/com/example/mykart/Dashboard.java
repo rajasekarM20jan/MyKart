@@ -1,15 +1,20 @@
 package com.example.mykart;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.SearchView;
 import android.widget.TextView;
 
 import com.android.volley.Request;
@@ -34,12 +39,14 @@ public class Dashboard extends AppCompatActivity {
     ArrayList<Products> storeProducts;
     ListView productList;
     RequestQueue requestQueue;
+    SearchView search;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
         requestQueue= Volley.newRequestQueue(this);
         storeProducts=new ArrayList<>();
+        search=findViewById(R.id.mySearch);
         productList=findViewById(R.id.productList);
         String url="https://dummyjson.com/products";
         JsonObjectRequest request= new JsonObjectRequest(Request.Method.GET, url, null,
@@ -47,7 +54,6 @@ public class Dashboard extends AppCompatActivity {
                     @Override
                     public void onResponse(JSONObject response) {
                         try {
-
                             JSONArray jsonArray=response.getJSONArray("products");
                             for(int i=0;i<jsonArray.length();i++){
                                 JSONObject products=jsonArray.getJSONObject(i);
@@ -69,14 +75,13 @@ public class Dashboard extends AppCompatActivity {
                                 }
                                 System.out.println("My Products are1:"+id+productName+description+price+discountPercentage+rating+stock+brand+category+thumbnails+ images);
                                 storeProducts.add(new Products(id,productName,description,price,discountPercentage,rating,stock,brand,category,thumbnails,images));
-
-
                             }
                             System.out.println("MyProducts :"+storeProducts.get(0).getImages());
                             MyCustomAdapter listAdapter=new MyCustomAdapter(Dashboard.this,R.layout.my_custom_layout,storeProducts);
                             productList.setAdapter(listAdapter);
 
                             System.out.println(id+productName+description+price+discountPercentage+rating+stock+brand+category);
+
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -88,6 +93,19 @@ public class Dashboard extends AppCompatActivity {
             }
         });
         requestQueue.add(request);
+
+        search.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String s) {
+                return false;
+            }
+        });
+
         productList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {

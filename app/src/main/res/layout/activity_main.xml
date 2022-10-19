@@ -6,15 +6,25 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#1C72DC"
+        tools:ignore="MissingConstraints" />
+
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="My Kart"
-        android:layout_margin="50dp"
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/akaya_telivigala"
+        android:text="MyKart"
+        android:textSize="28sp"
+        app:layout_constraintBottom_toBottomOf="@+id/view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 
     <LinearLayout
         android:layout_width="317dp"
@@ -70,6 +80,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:layout_gravity="center"
+            android:background="#1C72DC"
             android:textAlignment="center"
             android:inputType="number" />
         <TextView

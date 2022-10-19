@@ -57,7 +57,7 @@ public class ProductViewer extends AppCompatActivity {
         images= i.getStringArrayListExtra("images");
         productName.setText(pname);
         description.setText(pdesc);
-        price.setText(prc);
+        price.setText("₹ "+prc);
         rating.setText(rate);
         brand.setText(pbrand);
         category.setText(pcategory);
