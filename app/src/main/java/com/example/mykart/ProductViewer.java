@@ -21,7 +21,7 @@ import java.util.ArrayList;
 public class ProductViewer extends AppCompatActivity {
     TextView productName,description,price,rating,brand,category;
     ImageView image;
-    ImageButton next,previous;
+    Button next,previous;
     String stock;
     ArrayList images;
     int count;

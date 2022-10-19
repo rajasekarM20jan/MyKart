@@ -18,30 +18,33 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
 
-    <ImageButton
+    <android.widget.Button
         android:id="@+id/previous"
         android:layout_width="34dp"
         android:layout_height="198dp"
         android:layout_marginStart="40dp"
         android:layout_marginTop="80dp"
+        android:text="p\nr\ne\nv\ni\no\nu\ns"
         app:layout_constraintEnd_toStartOf="@+id/imageViewInViewer"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/ic_media_previous" />
+        android:drawableTop="@android:drawable/ic_media_previous"
+        />
 
-    <ImageButton
+    <android.widget.Button
         android:id="@+id/next"
         android:layout_width="34dp"
         android:layout_height="198dp"
         android:layout_marginTop="80dp"
         android:layout_marginEnd="20dp"
+        android:text="n\ne\nx\nt"
         android:layout_marginStart="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/imageViewInViewer"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/ic_media_next" />
+        android:drawableTop="@android:drawable/ic_media_next" />
 
     <TextView
         android:id="@+id/productNameinViewer"
