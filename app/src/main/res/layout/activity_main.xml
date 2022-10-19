@@ -48,8 +48,8 @@
             android:ems="10"
             android:layout_gravity="center"
             android:textAlignment="center"
-            android:inputType="text"
-            android:maxLines="1"/>
+            android:inputType="number"
+            android:maxLength="10"/>
         <EditText
             android:id="@+id/etForPassword"
             android:layout_width="250dp"
