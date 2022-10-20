@@ -21,12 +21,13 @@ import java.util.ArrayList;
 public class ProductViewer extends AppCompatActivity {
     TextView productName,description,price,rating,brand,category;
     ImageView image;
-    Button next,previous;
+    Button next,previous,addToCart;
     String stock;
     ArrayList images;
     int count;
     int a=1;
-    int b;
+    String pName,pPrice;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,19 +46,20 @@ public class ProductViewer extends AppCompatActivity {
         image=findViewById(R.id.imageViewInViewer);
         next=findViewById(R.id.next);
         previous=findViewById(R.id.previous);
+        addToCart=findViewById(R.id.addToCart);
         Intent i=getIntent();
-        String pname=i.getStringExtra("productName");
+        pName=i.getStringExtra("productName");
         String pdesc=i.getStringExtra("description");
-        String prc=i.getStringExtra("price");
+        pPrice=i.getStringExtra("price");
         String discount=i.getStringExtra("discountPercentage");
         String rate=i.getStringExtra("rating");
         stock=i.getStringExtra("stock");
         String pbrand=i.getStringExtra("brand");
         String pcategory=i.getStringExtra("category");
         images= i.getStringArrayListExtra("images");
-        productName.setText(pname);
+        productName.setText(pName);
         description.setText(pdesc);
-        price.setText("₹ "+prc);
+        price.setText("₹ "+pPrice);
         rating.setText(rate);
         brand.setText(pbrand);
         category.setText(pcategory);
@@ -82,6 +84,18 @@ public class ProductViewer extends AppCompatActivity {
                 moveToPrevious();
             }
         });
+        addToCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getCartPage();
+            }
+        });
+    }
+    void getCartPage(){
+        Intent i=new Intent(this,CartPage.class);
+        i.putExtra("product",pName);
+        i.putExtra("price",pPrice);
+        startActivity(i);
     }
     void moveToNext() {
         try {
