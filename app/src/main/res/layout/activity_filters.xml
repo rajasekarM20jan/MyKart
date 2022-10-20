@@ -9,76 +9,141 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="horizontal"
+            android:background="#1C72DC">
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/userDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_gravity="center"
+                android:backgroundTint="#1C72DC"
+                app:srcCompat="@drawable/person"
+                app:tint="@color/white"
+                />
+
+            <TextView
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/akaya_telivigala"
+                android:text="MyKart"
+                android:layout_marginTop="5dp"
+                android:layout_gravity="center"
+                android:textSize="28sp"
+                android:textAlignment="center"
+                />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/kart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginEnd="15dp"
+                android:backgroundTint="#1C72DC"
+                app:tint="@color/white"
+                app:srcCompat="@drawable/cart"
+                />
+
+
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/akaya_telivigala"
+            android:text="Choose Your Category.."
+            android:layout_marginTop="20dp"
+            android:textSize="22sp"
+            android:textAlignment="center"/>
 
         <android.widget.Button
             android:id="@+id/all"
-            android:layout_width="120dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="120dp"
-            android:layout_marginTop="150dp"
-            android:background="#1C72DC"
+            android:layout_width="100dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="130dp"
+            android:layout_marginTop="160dp"
+            android:layout_marginBottom="20dp"
+            android:background="@color/my_color"
             android:text="ALL"
             android:textColor="@color/white" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-        <android.widget.Button
-            android:id="@+id/smartPhones"
-            android:layout_width="120dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="120dp"
-            android:layout_marginTop="20dp"
-            android:background="#1C72DC"
-            android:text="Smart Phones"
-            android:textColor="@color/white" />
+            <android.widget.Button
+                android:id="@+id/smartPhones"
+                android:layout_width="110dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/my_color"
+                android:text="Smart Phones"
+                android:textColor="@color/white" />
 
-        <android.widget.Button
-            android:id="@+id/laptops"
-            android:layout_width="120dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="120dp"
-            android:layout_marginTop="20dp"
-            android:background="#1C72DC"
-            android:text="Laptops"
-            android:textColor="@color/white" />
+            <android.widget.Button
+                android:id="@+id/laptops"
+                android:layout_width="110dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/my_color"
+                android:text="Laptops"
+                android:textColor="@color/white" />
 
-        <android.widget.Button
-            android:id="@+id/fragrances"
-            android:layout_width="120dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="120dp"
-            android:layout_marginTop="20dp"
-            android:background="#1C72DC"
-            android:text="fragrances"
-            android:textColor="@color/white" />
+            <android.widget.Button
+                android:id="@+id/fragrances"
+                android:layout_width="110dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/my_color"
+                android:text="fragrances"
+                android:textColor="@color/white" />
 
+        </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
         <android.widget.Button
             android:id="@+id/groceries"
-            android:layout_width="120dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="120dp"
-            android:layout_marginTop="20dp"
-            android:background="#1C72DC"
+            android:layout_width="110dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="30dp"
+            android:background="@color/my_color"
             android:text="groceries"
             android:textColor="@color/white" />
 
         <android.widget.Button
             android:id="@+id/homeDecor"
-            android:layout_width="120dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="120dp"
-            android:layout_marginTop="20dp"
-            android:background="#1C72DC"
+            android:layout_width="110dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="30dp"
+            android:background="@color/my_color"
             android:text="Home-Decors"
             android:textColor="@color/white" />
 
         <android.widget.Button
             android:id="@+id/skinCare"
-            android:layout_width="120dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="120dp"
-            android:layout_marginTop="20dp"
-            android:background="#1C72DC"
+            android:layout_width="110dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="30dp"
+            android:background="@color/my_color"
             android:text="Skin Care"
             android:textColor="@color/white" />
+    </LinearLayout>
+
+
+
 
 
     </LinearLayout>

@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/linear_bg"
+    android:background="@drawable/list"
+    android:elevation="@dimen/cardview_compat_inset_shadow"
     >
 
     <ImageView
@@ -12,6 +13,7 @@
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:paddingBottom="20dp"
+        android:elevation="@dimen/cardview_default_elevation"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="31dp"

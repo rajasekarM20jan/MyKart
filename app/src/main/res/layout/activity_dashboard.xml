@@ -47,16 +47,29 @@
             android:layout_marginBottom="1dp"
             />
 
-
-
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
         <android.widget.Button
             android:id="@+id/filters"
-            android:layout_width="match_parent"
+            android:layout_width="180dp"
             android:layout_height="50dp"
             android:background="#1C72DC"
             android:text="Filters"
             android:textColor="@color/white"
             />
+        <android.widget.Button
+            android:id="@+id/user"
+            android:layout_width="180dp"
+            android:layout_height="50dp"
+            android:background="#1C72DC"
+            android:text="Profile"
+            android:textColor="@color/white"
+            />
+    </LinearLayout>
+
+
 
     </LinearLayout>
 
