@@ -10,7 +10,7 @@
         android:id="@+id/imageViewInViewer"
         android:layout_width="275dp"
         android:layout_height="200dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="50dp"
         android:layout_marginStart="50dp"
         android:layout_marginEnd="50dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -20,38 +20,38 @@
 
     <android.widget.Button
         android:id="@+id/previous"
-        android:layout_width="34dp"
-        android:layout_height="198dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="80dp"
-        android:text="p\nr\ne\nv\ni\no\nu\ns"
-        app:layout_constraintEnd_toStartOf="@+id/imageViewInViewer"
-        app:layout_constraintHorizontal_bias="1.0"
+        android:layout_width="150dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="30dp"
+        android:background="@color/my_color"
+        android:drawableLeft="@android:drawable/ic_media_previous"
+        android:text="previous"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/productNameinViewer"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:drawableTop="@android:drawable/ic_media_previous"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/imageViewInViewer" />
 
     <android.widget.Button
         android:id="@+id/next"
-        android:layout_width="34dp"
-        android:layout_height="198dp"
-        android:layout_marginTop="80dp"
-        android:layout_marginEnd="20dp"
-        android:text="n\ne\nx\nt"
-        android:layout_marginStart="20dp"
+        android:layout_width="150dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginEnd="30dp"
+        android:background="@color/my_color"
+        android:drawableRight="@android:drawable/ic_media_next"
+        android:text="next"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/productNameinViewer"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/imageViewInViewer"
-        app:layout_constraintTop_toTopOf="parent"
-        android:drawableTop="@android:drawable/ic_media_next" />
+        app:layout_constraintStart_toEndOf="@+id/previous"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewInViewer" />
 
     <TextView
         android:id="@+id/productNameinViewer"
         android:layout_width="303dp"
         android:layout_height="30dp"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="60dp"
         android:textSize="22sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageViewInViewer" />
