@@ -69,6 +69,60 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <TextView
+        android:id="@+id/fullName"
+        android:layout_width="120dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="50dp"
+        android:fontFamily="@font/akaya_telivigala"
+        android:text=""
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <TextView
+        android:id="@+id/mobile"
+        android:layout_width="120dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="50dp"
+        android:fontFamily="@font/akaya_telivigala"
+        android:text=""
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fullName" />
+
+    <TextView
+        android:id="@+id/email"
+        android:layout_width="120dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="50dp"
+        android:fontFamily="@font/akaya_telivigala"
+        android:text=""
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mobile" />
+    <TextView
+        android:id="@+id/password"
+        android:layout_width="120dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="50dp"
+        android:fontFamily="@font/akaya_telivigala"
+        android:text=""
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/email" />
+
+    <TextView
+        android:id="@+id/loginStatus"
+        android:layout_width="120dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="50dp"
+        android:fontFamily="@font/akaya_telivigala"
+        android:text=""
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/password" />
+
+    <TextView
         android:id="@+id/textView6"
         android:layout_width="99dp"
         android:layout_height="25dp"
@@ -90,13 +144,12 @@
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton"
+        android:id="@+id/filterPage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:layout_marginEnd="20dp"
         app:tint="@color/white"
-        android:clickable="true"
         app:backgroundTint="@color/my_color"
         app:layout_constraintBottom_toBottomOf="@+id/view2"
         app:layout_constraintEnd_toEndOf="@+id/view2"

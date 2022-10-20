@@ -58,6 +58,19 @@ public class DbClassMyKart extends SQLiteOpenHelper {
         }catch (Exception e){
             userFound="false";
         }
-
     }
+    public void getData(String mobile) {
+        dbReader = this.getReadableDatabase();
+        c = dbReader.rawQuery("SELECT * FROM UserAccounts WHERE mobileNumber=? ", new String[]{mobile});
+        c.moveToNext();
+        name = c.getString(0);
+        userName = c.getString(1);
+        email = c.getString(2);
+        password = c.getString(3);
+        mobileNumber = c.getString(4);
+        login = c.getString(5);
+        c.close();
+    }
+
 }
+

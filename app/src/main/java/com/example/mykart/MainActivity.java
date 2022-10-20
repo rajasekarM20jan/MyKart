@@ -74,10 +74,9 @@ public class MainActivity extends AppCompatActivity {
         String user=db.userFound;
         if(user.equals("true")){
             String userMobile=db.mobileNumber;
-            String userMail=db.email;
             String password=db.password;
             controllerLogin c=new controllerLogin(MainActivity.this);
-            c.verifyData(userMobile,userMail,password,etForMail.getText().toString(),etForPassword.getText().toString());
+            c.verifyData(userMobile,password,etForMail.getText().toString(),etForPassword.getText().toString());
         }else{
             etForMail.setError("Invalid Credentials");
         }

@@ -10,12 +10,12 @@ public class controllerLogin {
  public controllerLogin(MainActivity mainActivity){
      this.userVerification=mainActivity;
  }
- public void verifyData(String userMobile,String userMail,String password,String editTextMail,String editTextPass){
+ public void verifyData(String userMobile,String password,String editTextMail,String editTextPass){
      if(editTextMail.equals(userMobile)){
       if(editTextPass.equals(password)){
        SharedPreferences sp= userVerification.getSharedPreferences("MyPref", Context.MODE_PRIVATE);
        SharedPreferences.Editor editor=sp.edit();
-       editor.putString("email",userMail);
+       editor.putString("mobile",userMobile);
        editor.commit();
        userVerification.dashboard();
       }else{

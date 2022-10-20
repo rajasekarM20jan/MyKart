@@ -60,7 +60,7 @@
             android:textColor="@color/white"
             />
         <android.widget.Button
-            android:id="@+id/user"
+            android:id="@+id/userProfile"
             android:layout_width="180dp"
             android:layout_height="50dp"
             android:background="#1C72DC"

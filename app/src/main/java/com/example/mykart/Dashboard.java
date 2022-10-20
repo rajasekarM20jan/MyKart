@@ -42,7 +42,7 @@ public class Dashboard extends AppCompatActivity {
     ListView productList;
     RequestQueue requestQueue;
     SearchView search;
-    Button filter;
+    Button filter,userProfile;
     String values="all";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +53,7 @@ public class Dashboard extends AppCompatActivity {
         search=findViewById(R.id.mySearch);
         productList=findViewById(R.id.productList);
         filter=findViewById(R.id.filters);
+        userProfile=findViewById(R.id.userProfile);
         Intent i=getIntent();
         String a;
         try{
@@ -209,9 +210,19 @@ public class Dashboard extends AppCompatActivity {
                 getfilterPage();
             }
         });
+        userProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getUserPage();
+            }
+        });
     }
     void getfilterPage(){
         Intent i=new Intent(this,filters.class);
+        startActivity(i);
+    }
+    void getUserPage(){
+        Intent i=new Intent(this,UserProfile.class);
         startActivity(i);
     }
 }

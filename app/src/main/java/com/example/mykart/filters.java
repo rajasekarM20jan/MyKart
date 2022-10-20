@@ -7,9 +7,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class filters extends AppCompatActivity {
-    Button filter,all,smartPhones,laptops,fragrances,skincare,groceries,homeDecor;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+public class filters extends AppCompatActivity {
+    Button all,smartPhones,laptops,fragrances,skincare,groceries,homeDecor;
+    FloatingActionButton user,cart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +24,8 @@ public class filters extends AppCompatActivity {
         skincare=findViewById(R.id.skinCare);
         groceries=findViewById(R.id.groceries);
         homeDecor=findViewById(R.id.homeDecor);
+        user=findViewById(R.id.userDetails);
+        cart=findViewById(R.id.kart);
         all.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -78,5 +82,21 @@ public class filters extends AppCompatActivity {
                 startActivity(i);
             }
         });
+        user.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getUserPage();
+            }
+        });
+        cart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+    }
+    void getUserPage(){
+        Intent i=new Intent(this,UserProfile.class);
+        startActivity(i);
     }
 }
